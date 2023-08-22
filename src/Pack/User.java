@@ -1,20 +1,22 @@
 package Pack;
 
 
+import java.util.Arrays;
+
 public class User {
     private int idUser;
     private String userName;
     private String userEmail;
     private String userPassword;
-    private Profile profile;
+    private Profile[] profiles;
 
 
-    public User(int idUser, String userName, String userEmail, String userPassword, Profile profile) {
+    public User(int idUser, String userName, String userEmail, String userPassword, Profile[] profiles) {
         this.idUser = idUser;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
-        this.profile = profile;
+        this.profiles = profiles;
     }
 
     public User() {
@@ -53,12 +55,12 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public Profile getProfile() {
-        return profile;
+    public Profile[] getProfile() {
+        return profiles;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void setProfile(Profile[] profile) {
+        this.profiles = profiles;
     }
 
 
@@ -72,7 +74,9 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userPassword='" + userPassword + '\'' +
-                ", \n \nprofile=" + profile +
+                ", \n \nprofile=" + Arrays.toString(profiles) +
                 '\n';
     }
+
+
 }

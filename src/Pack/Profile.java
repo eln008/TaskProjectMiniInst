@@ -1,7 +1,9 @@
 package Pack;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Profile {
     private int idProfile;
@@ -74,16 +76,29 @@ public class Profile {
         this.post = post;
     }
 
-    public Post searchPost(String query, Profile[] profiles) {
-        for (Profile profile : profiles) {
-            for (Post post : profile.getPost()) {
-                if (post.getDescription().contains(query)) {
-                    return post;
-                }
+    public Post[] getPostsByUserId(long postId) {
+        int count = 0;
+
+        for (Post p : post) {
+            if (p.getIdPost() == postId) {
+                count++;
             }
         }
-        return null;
+
+        Post[] userPostsArray = new Post[count];
+        int index = 0;
+
+        for (Post p : post) {
+            if (p.getIdPost() == postId) {
+                userPostsArray[index++] = p;
+            }
+        }
+
+        return userPostsArray;
     }
+
+
+
 
     public boolean deletePostById(long id) {
         boolean deletePost = false;

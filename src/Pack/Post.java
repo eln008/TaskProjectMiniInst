@@ -1,6 +1,7 @@
 package Pack;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Post {
     private int idPost;
@@ -8,15 +9,15 @@ public class Post {
     private String image;
     private String description;
     private LocalDate created;
-    private Comment comment;
+    private Comment[] comments;
 
 
-    public Post(int idPost, String image, String description, LocalDate created, Comment comment) {
+    public Post(int idPost, String image, String description, LocalDate created, Comment[] comments) {
         this.idPost = idPost;
         this.image = image;
         this.description = description;
         this.created = created;
-        this.comment = comment;
+        this.comments = comments;
     }
 
     public Post() {
@@ -55,12 +56,12 @@ public class Post {
         this.created = created;
     }
 
-    public Comment getComment() {
-        return comment;
+    public Comment[] getComments() {
+        return comments;
     }
 
-    public void setComment(Comment comment) {
-        this.comment = comment;
+    public void setComment(Comment[] comment) {
+        this.comments = comments;
     }
 
 
@@ -73,7 +74,7 @@ public class Post {
                 ",\nimage='" + image + '\'' +
                 ",\ndescription='" + description + '\'' +
                 ",\ncreated=" + created +
-                ",\n \ncomment=" + comment;
+                ",\n \ncomment=" + Arrays.toString(comments);
     }
 
 
